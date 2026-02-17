@@ -76,6 +76,24 @@ body {
 .stButton>button:hover {
     background-color: #1e40af;
 }
+            
+/* Move Sidebar to Right */
+section[data-testid="stSidebar"] {
+    left: auto !important;
+    right: 0 !important;
+}
+
+section[data-testid="stSidebar"] > div:first-child {
+    left: auto !important;
+    right: 0 !important;
+}
+
+/* Add margin to main content so it doesn't overlap */
+section[data-testid="stAppViewContainer"] {
+    margin-right: 21rem;
+    margin-left: 0 !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -102,18 +120,27 @@ uploaded_file = st.sidebar.file_uploader(
 submit = st.sidebar.button("🔍 Analyze Structure")
 
 # ===================== MAIN LAYOUT =====================
-col1, col2 = st.columns([1, 1])
+col1, col2 = st.columns([1, 1], gap="large")
 
+# -------- LEFT: IMAGE BLOCK --------
 with col1:
-    st.markdown("### 📷 Uploaded Image")
+    st.markdown("### Upload Image")
+
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+
     if uploaded_file:
         image = Image.open(uploaded_file)
         st.image(image, use_container_width=True)
     else:
         st.info("Upload an image from the sidebar to preview it here.")
 
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+# -------- RIGHT: ANALYSIS BLOCK --------
 with col2:
-    st.markdown("### 🧠 Engineering Analysis")
+    st.markdown("### Get Analysis")
+
     st.markdown('<div class="card">', unsafe_allow_html=True)
 
     prompt = """
@@ -142,6 +169,7 @@ with col2:
         st.info("Click **Analyze Structure** to generate insights.")
 
     st.markdown('</div>', unsafe_allow_html=True)
+
 
 # ===================== FOOTER =====================
 st.markdown(
