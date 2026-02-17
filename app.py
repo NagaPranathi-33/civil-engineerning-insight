@@ -1,3 +1,4 @@
+# this is mine
 from dotenv import load_dotenv
 import streamlit as st
 import os
@@ -174,5 +175,4 @@ with col2:
 # ===================== FOOTER =====================
 st.markdown(
     "<hr><center>🚧 Built with Gemini AI · Streamlit · Civil Engineering Intelligence</center>",
-    unsafe_allow_html=True
-)
+    unsafe_allow_html=True)
