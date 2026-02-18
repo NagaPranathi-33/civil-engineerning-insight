@@ -51,6 +51,11 @@ https://github.com/NagaPranathi-33/civil-engineerning-insight.git
 ```
 
 ---
+## Deployed App Link
+```
+https://civil-engineerning-insight-studio.streamlit.app/
+```
+---
 ## 🎥 Demo Video
 
 Watch the full demo here:
